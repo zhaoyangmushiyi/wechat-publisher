@@ -1,4 +1,4 @@
-package com.monochrome.wechatpublisher.util;
+package com.monochrome.wechatpublisher.util.qweather;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

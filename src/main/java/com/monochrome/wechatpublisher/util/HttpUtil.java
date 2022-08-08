@@ -1,8 +1,5 @@
-package ydzhao.weixin.tuisong.util;
+package com.monochrome.wechatpublisher.util;
 
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
 import org.apache.http.HeaderElement;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -19,6 +16,10 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.message.BasicHeaderElementIterator;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
+
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * 请求http的帮助类
@@ -64,7 +65,7 @@ public class HttpUtil {
         return context;
     }
 
-    public static String getUrl(String url) throws ClientProtocolException, IOException {
+    public static String doGet(String url) throws ClientProtocolException, IOException {
         CloseableHttpClient httpclient = HttpClients.createDefault();
 
         String var7;

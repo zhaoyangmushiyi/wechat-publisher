@@ -1,1 +1,20 @@
-
+spring:
+  application:
+    name: Wechat-Publisher
+server:
+  port: 8080
+#公众号配置
+wx:
+  mp:
+    app-id: your app id
+    secret: your app secret
+#自定义的一些配置，比如微信公众号模板id，天气信息id和key
+com:
+  monochrome:
+    wx:
+      template:
+        good-morning: your WeChat template id
+    qweather:
+      id: qweather id
+      key: qweather key
+      location: 101270106 #双流和风天气location

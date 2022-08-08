@@ -3,9 +3,9 @@
 // (powered by FernFlower decompiler)
 //
 
-package com.monochrome.wechatpublisher.util;
+package com.monochrome.wechatpublisher.util.qweather;
 
-public class DailyWeather {
+public class Daily {
     private String fxDate;
     private String sunrise;
     private String sunset;
@@ -33,7 +33,7 @@ public class DailyWeather {
     private String cloud;
     private String uvIndex;
 
-    public DailyWeather() {
+    public Daily() {
     }
 
     public String getFxDate() {

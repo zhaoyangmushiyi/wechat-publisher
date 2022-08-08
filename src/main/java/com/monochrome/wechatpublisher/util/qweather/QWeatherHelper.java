@@ -1,8 +1,7 @@
-package com.monochrome.wechatpublisher.util;
+package com.monochrome.wechatpublisher.util.qweather;
 
 import com.alibaba.fastjson.JSON;
-import com.monochrome.wechatpublisher.util.qweather.Daily;
-import com.monochrome.wechatpublisher.util.qweather.QWeatherDailyResponse;
+import com.monochrome.wechatpublisher.util.HttpUtil;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -16,7 +15,6 @@ public class QWeatherHelper {
 
     final QWeatherProperties qWeatherProperties;
 
-    // location=101270106表示双流的地址
     String weatherUrl = "https://devapi.qweather.com/v7/weather/3d";
 
     public QWeatherHelper(QWeatherProperties qWeatherProperties) {

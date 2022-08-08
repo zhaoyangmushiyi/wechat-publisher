@@ -1,42 +1,33 @@
 package com.monochrome.wechatpublisher.util;
 
-import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * @ClassName CaiHongPi
- * @Description TODO
- * @Author ydzhao
- * @Date 2022/8/2 17:26
- */
-public class CaiHongPi {
-    private static String key = "xxx";
-    private static String url = "http://api.tianapi.com/caihongpi/index?key=";
-    private static List<String> jinJuList = new ArrayList<>();
-    private static String name = "老婆";
+@Component
+public class Whispers {
+    private static final List<String> whispers = new ArrayList<>();
 
     /**
      * 载入金句库
      */
     static {
-        InputStream inputStream = CaiHongPi.class.getClassLoader().getResourceAsStream("jinju.txt");
+        InputStream inputStream = Whispers.class.getClassLoader().getResourceAsStream("whispers.txt");
         try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
-            String str = "";
+            StringBuilder str = new StringBuilder();
             String temp = "";
             while ((temp = br.readLine()) != null) {
                 if (!StringUtils.isEmpty(temp)) {
-                    str = str + "\r\n" + temp;
+                    str.append("\r\n").append(temp);
                 } else {
-                    jinJuList.add(str);
-                    str = "";
+                    whispers.add(str.toString());
+                    str = new StringBuilder();
                 }
             }
         } catch (Exception e) {
@@ -44,12 +35,8 @@ public class CaiHongPi {
         }
     }
 
-    public static String getJinJu() {
+    public String getRandomWhisper() {
         Random random = new Random();
-        return jinJuList.get(random.nextInt(jinJuList.size()));
-    }
-
-    public static void main(String[] args) {
-        System.out.println(getJinJu());
+        return whispers.get(random.nextInt(whispers.size()));
     }
 }

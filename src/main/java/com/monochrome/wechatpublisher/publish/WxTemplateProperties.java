@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @ConfigurationProperties(prefix = "com.monochrome.wx.template")
 @Component
-public class TemplateProperties {
+public class WxTemplateProperties {
 
     private String goodMorning;
 
